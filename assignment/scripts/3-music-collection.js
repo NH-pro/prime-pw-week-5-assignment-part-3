@@ -1,6 +1,6 @@
 console.log('***** Music Collection *****')
 let collection = [];
-// END var 'collection'.
+// END of var 'collection'.
 
 function addToCollection(title, artist, yearPublished) {
     let album = {
@@ -31,7 +31,7 @@ console.log("Here is your music collection:",collection);
 // TEST to see if 'collection' logs out correctly.
 
 function showCollection(array) {
-    console.log(array.length);
+    console.log('Total number of albums in your collection:',array.length);
     // Console logs the number of items in a certain array.
 
     for (item of array){
@@ -41,5 +41,26 @@ function showCollection(array) {
 }
 // END of 'showCollection' function.
 
-console.log('Above should be my music collection ^',showCollection(collection));
+console.log('Above should be your music collection ^',showCollection(collection));
 // TEST to see if 'showCollection' properly works.
+
+function findByArtist(artist) {
+    let artistInCollection = [];
+    // Empty array to store found artist parameter from 'collection' array.
+
+    for (album of collection){
+    // Looping through every album in the 'collection' array.
+        if (album.artist === artist){
+        // Checking if 'album.artist' property is equal to artist parameter.
+            artistInCollection.push(album);
+        }
+    }
+    return artistInCollection;
+    // Return 'artistInCollection' array to show if you have any albums by the artist parameter.
+}
+// END of 'findByArtist' function.
+
+console.log(findByArtist('Muse'));
+// TEST to see if function works properly. Should show 2 objects in the 'artistInCollection' array with "Muse" 'artist' property.
+console.log(findByArtist('Bach'));
+// TEST of 'findByArtist' function. Should show an empty 'artistInCollection' array cause there are no albums in the collection by "Bach".
