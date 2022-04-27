@@ -64,3 +64,19 @@ console.log(findByArtist('Muse'));
 // TEST to see if function works properly. Should show 2 objects in the 'artistInCollection' array with "Muse" 'artist' property.
 console.log(findByArtist('Bach'));
 // TEST of 'findByArtist' function. Should show an empty 'artistInCollection' array cause there are no albums in the collection by "Bach".
+
+function search(artist, publishedYear) {
+    let searchResult = [];
+    // Empty array to store found search results.
+
+        for (album of collection){
+        // Looping through every album in the 'collection' array.
+            if (album.artist === artist && album.yearPublished === publishedYear) {
+            // Checking if there are any albums that have match properties of both 'artist' AND 'yearPublished'.
+                searchResult.push(album);
+            }
+        }
+        return searchResult;
+        // Return 'searchResult' array to show any matches with input parameters and 'collection' array.
+}
+console.log(search('Ray Charles', 1957));
