@@ -60,11 +60,12 @@ function findByArtist(artist) {
 }
 // END of 'findByArtist' function.
 
-console.log(findByArtist('Muse'));
+console.log('There are 2 albums by Muse in the collection, so this should show 2 in the array:', findByArtist('Muse'));
 // TEST to see if function works properly. Should show 2 objects in the 'artistInCollection' array with "Muse" 'artist' property.
-console.log(findByArtist('Bach'));
+console.log('There is no Bach in the collection, so this should show an empty array:', findByArtist('Bach'));
 // TEST of 'findByArtist' function. Should show an empty 'artistInCollection' array cause there are no albums in the collection by "Bach".
 
+/*
 function search(artist, publishedYear) {
     let searchResult = [];
     // Empty array to store found search results.
@@ -79,4 +80,8 @@ function search(artist, publishedYear) {
         return searchResult;
         // Return 'searchResult' array to show any matches with input parameters and 'collection' array.
 }
+// End of first try at the 'search' function.
+
 console.log(search('Ray Charles', 1957));
+*/
+
