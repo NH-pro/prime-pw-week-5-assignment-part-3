@@ -26,6 +26,9 @@ console.log(addToCollection('Where the Light Is', 'Surfaces', 2019));
 console.log(addToCollection('Non-Stop Erotic Cabaret', 'Soft Cell', 1981));
 console.log(addToCollection('Origin of Symmetry', 'Muse', 2001));
 // TEST if 'addToCollection' function works by executing it 6 times with different arguments.
+console.log(addToCollection('Fake Title', 'Fake Artist', 1957));
+// TEST for Stretch Goals
+
 
 console.log("Here is your music collection:",collection);
 // TEST to see if 'collection' logs out correctly.
@@ -70,18 +73,62 @@ function search(artist, publishedYear) {
     let searchResult = [];
     // Empty array to store found search results.
 
-        for (album of collection){
-        // Looping through every album in the 'collection' array.
-            if (album.artist === artist && album.yearPublished === publishedYear) {
-            // Checking if there are any albums that have match properties of both 'artist' AND 'yearPublished'.
-                searchResult.push(album);
-            }
+    for (album of collection){
+    // Looping through every album in the 'collection' array.
+        if (album.artist === artist && album.yearPublished === publishedYear) {
+        // Checking if there are any albums that have match properties of both 'artist' AND 'yearPublished'.
+            searchResult.push(album);
         }
-        return searchResult;
-        // Return 'searchResult' array to show any matches with input parameters and 'collection' array.
+    }
+    return searchResult;
+    // Return 'searchResult' array to show any matches with input parameters and 'collection' array.
 }
-// End of first try at the 'search' function.
+// END of first try at the 'search' function.
 
 console.log(search('Ray Charles', 1957));
-*/
+// Test to see if there are any of these arguments in collection. Should show an empty array, cause there are none.
+*/ 
+
+let searchObject = {
+    artist: 'Ray Charles',
+    year: 1957
+};
+// Search object with the specified properties.
+
+function search(searchCriteriaObject) {
+    let searchResult = [];
+    // Empty array to store found search results.
+
+    let criteria = Object.values(searchCriteriaObject);
+    // Make a var called 'criteria' to store 'searchCriteriaObject' values in an array.
+    console.log(criteria);
+    // Shows the values we are interested in searching the 'collection' array for.
+
+    let collectionCriteria = [];
+    // Empty array to store 'album' values from 'collection' array. So we can compare them to the values we have in the 'criteria' array.
+
+    for (album of collection){
+    // Loop through each album in 'collection' array.
+        let albumCriteria = Object.values(album);
+        // Make a var called 'albumCriteria' to store album values from 'collection'.
+        collectionCriteria.push(albumCriteria);
+        // Push each value into the mega array called 'collectionCriteria'.
+    }
+    console.log(collectionCriteria);
+    // Shows all the values from every album in 'collection' array.
+
+    for (value of criteria){
+    // Loop through each element in 'criteria' array.
+        for (albumValue of collectionCriteria){
+        // Loop through each element in 'collectionCriteria' array.
+            if (value === albumValue){
+            // Check to see if any of the vales from each array match.
+                searchResult.push(value);
+            }
+            return searchResult;
+        }
+    
+    }
+}
+console.log(search(searchObject));
 
